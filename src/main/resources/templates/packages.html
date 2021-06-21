@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>tourism app</title>
+</head>
+<body>
+<div align="center">
+    <h1>PACKAGES</h1>
+    <br/><br/>
+    <br/><br/>
+     <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th> ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Actions</th>
+                
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="package : ${listPackages}">
+                <td th:text="${package.id}"> ID</td>
+                <td th:text="${package.name}">Name</td>
+                <td th:text="${package.price}">Price</td>
+              	<td>
+              		<a th:href="@{'/editpackage/' + ${package.id}}">Edit</a>
+              		&nbsp;&nbsp;&nbsp;
+              		<a th:href="@{'/deletepackage/' + ${package.id}}">Delete</a>
+                </td>
+                
+               
+            </tr>
+        </tbody>
+    </table>
+</div>   
+</body>
+</html>
